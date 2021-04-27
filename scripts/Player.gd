@@ -4,6 +4,8 @@ var linear_vel = Vector2.ZERO
 var SPEED = 400
 var SPEED_SQUARED = SPEED * SPEED
 
+onready var playback = $AnimationTree.get("parameters/playback")
+
 # networking
 puppet var puppet_pos = Vector2()
 puppet var puppet_target_vel = Vector2()
@@ -36,3 +38,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		position = lerp(position, puppet_pos, 0.5)
 		puppet_pos = position
+		
+	# Animations
+	
+	if abs(linear_vel.x) > 0:
+		playback.travel("right")
+	else:
+		playback.travel("idle")
+		
+		

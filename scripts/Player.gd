@@ -3,7 +3,7 @@ extends KinematicBody2D
 var linear_vel = Vector2.ZERO
 var SPEED = 400
 var SPEED_SQUARED = SPEED * SPEED
-
+var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
 
 # networking
@@ -40,10 +40,18 @@ func _physics_process(delta: float) -> void:
 		puppet_pos = position
 		
 	# Animations
-	
-	if abs(linear_vel.x) > 0:
+	if Input.is_action_just_pressed("move_right") and facing != "right":
+		facing = "right"
 		playback.travel("right")
-	else:
+	if Input.is_action_just_pressed("move_left") and facing != "left":
+		facing = "left"
+		playback.travel("left")
+	if Input.is_action_just_pressed("move_up") and facing != "up":
+		facing = "up"
+		playback.travel("up")
+	if Input.is_action_just_pressed("move_down") and facing != "down":
+		facing = "down"
+		playback.travel("down")
+	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
+		facing = "idle"
 		playback.travel("idle")
-		
-		

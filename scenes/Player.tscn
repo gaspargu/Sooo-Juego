@@ -175,6 +175,8 @@ animation = "up"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
@@ -188,6 +190,8 @@ animation = "up"
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
@@ -203,10 +207,6 @@ animation = "up"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
-
 [sub_resource type="AnimationNodeStateMachine" id=32]
 states/down/node = SubResource( 7 )
 states/down/position = Vector2( 496, 202 )
@@ -218,18 +218,20 @@ states/right/node = SubResource( 10 )
 states/right/position = Vector2( 688, 107 )
 states/up/node = SubResource( 11 )
 states/up/position = Vector2( 496, 34 )
-transitions = [ "up", "idle", SubResource( 12 ), "idle", "up", SubResource( 13 ), "right", "idle", SubResource( 14 ), "idle", "right", SubResource( 15 ), "idle", "down", SubResource( 17 ), "down", "up", SubResource( 18 ), "up", "down", SubResource( 19 ), "down", "right", SubResource( 20 ), "right", "down", SubResource( 21 ), "right", "up", SubResource( 22 ), "up", "right", SubResource( 23 ), "idle", "left", SubResource( 25 ), "left", "up", SubResource( 26 ), "up", "left", SubResource( 27 ), "left", "down", SubResource( 28 ), "down", "left", SubResource( 29 ), "left", "right", SubResource( 30 ), "right", "left", SubResource( 31 ), "left", "idle", SubResource( 34 ), "down", "idle", SubResource( 35 ) ]
+transitions = [ "up", "idle", SubResource( 12 ), "idle", "up", SubResource( 13 ), "right", "idle", SubResource( 14 ), "idle", "right", SubResource( 15 ), "idle", "down", SubResource( 16 ), "down", "up", SubResource( 17 ), "up", "down", SubResource( 18 ), "down", "right", SubResource( 19 ), "right", "down", SubResource( 20 ), "right", "up", SubResource( 21 ), "up", "right", SubResource( 22 ), "idle", "left", SubResource( 23 ), "left", "up", SubResource( 24 ), "up", "left", SubResource( 25 ), "left", "down", SubResource( 26 ), "down", "left", SubResource( 27 ), "left", "right", SubResource( 28 ), "right", "left", SubResource( 29 ), "left", "idle", SubResource( 30 ), "down", "idle", SubResource( 31 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=33]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 4
 hframes = 3
+vframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

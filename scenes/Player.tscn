@@ -151,6 +151,7 @@ animation = "up"
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
 states/down/node = SubResource( 8 )
+
 states/down/position = Vector2( 496, 202 )
 states/idle/node = SubResource( 9 )
 states/idle/position = Vector2( 496, 115 )
@@ -160,18 +161,21 @@ states/right/node = SubResource( 11 )
 states/right/position = Vector2( 688, 107 )
 states/up/node = SubResource( 12 )
 states/up/position = Vector2( 496, 34 )
+
 transitions = [ "up", "idle", SubResource( 13 ), "idle", "up", SubResource( 14 ), "right", "idle", SubResource( 15 ), "idle", "right", SubResource( 16 ), "idle", "down", SubResource( 17 ), "down", "up", SubResource( 18 ), "up", "down", SubResource( 19 ), "down", "right", SubResource( 20 ), "right", "down", SubResource( 21 ), "right", "up", SubResource( 22 ), "up", "right", SubResource( 23 ), "idle", "left", SubResource( 24 ), "left", "up", SubResource( 25 ), "up", "left", SubResource( 26 ), "left", "down", SubResource( 27 ), "down", "left", SubResource( 28 ), "left", "right", SubResource( 29 ), "right", "left", SubResource( 30 ), "left", "idle", SubResource( 31 ), "down", "idle", SubResource( 32 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 4
 hframes = 3
+vframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

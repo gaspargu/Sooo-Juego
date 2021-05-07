@@ -5,6 +5,7 @@ var SPEED = 400
 var SPEED_SQUARED = SPEED * SPEED
 var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
+var can_kick = true
 
 # networking
 puppet var puppet_pos = Vector2()
@@ -40,6 +41,10 @@ func _physics_process(delta: float) -> void:
 		puppet_pos = position
 		
 	# Animations
+	if Input.is_action_just_pressed("kick") and can_kick:
+		print("just kick")
+		can_kick = false
+		$Timer.start()
 	if Input.is_action_just_pressed("move_right") and facing != "right":
 		facing = "right"
 		playback.travel("right")
@@ -55,3 +60,10 @@ func _physics_process(delta: float) -> void:
 	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
 		facing = "idle"
 		playback.travel("idle")
+
+func _on_Timer_timeout():
+	print("can kick")
+	can_kick = true
+
+func set_text(text):
+	$Sprite.texture = text

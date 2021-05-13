@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		target_vel = puppet_target_vel
 	
-	linear_vel = lerp(linear_vel, target_vel * SPEED, 0.1)
+	linear_vel = lerp(linear_vel, target_vel * SPEED, 0.8)
 	linear_vel = move_and_slide(linear_vel, Vector2.UP)
 	
 	if is_network_master():
@@ -40,26 +40,36 @@ func _physics_process(delta: float) -> void:
 		position = lerp(position, puppet_pos, 0.5)
 		puppet_pos = position
 		
+	var current = playback.get_current_node()	
 	# Animations
 	if Input.is_action_just_pressed("kick") and can_kick:
+		playback.travel("patada")
 		print("just kick")
-		can_kick = false
+#		can_kick = false
 		$Timer.start()
-	if Input.is_action_just_pressed("move_right") and facing != "right":
-		facing = "right"
-		playback.travel("right")
-	if Input.is_action_just_pressed("move_left") and facing != "left":
-		facing = "left"
-		playback.travel("left")
-	if Input.is_action_just_pressed("move_up") and facing != "up":
-		facing = "up"
-		playback.travel("up")
-	if Input.is_action_just_pressed("move_down") and facing != "down":
-		facing = "down"
-		playback.travel("down")
-	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
-		facing = "idle"
+		return
+	if Input.is_action_just_pressed("muerto"):
+		print("presiona M de muerto")
+		playback.travel("muerto")
+		return
+	if Input.is_action_just_pressed("move_right"):
+		$Sprite.flip_h = false
+	if Input.is_action_just_pressed("move_left"):
+		$Sprite.flip_h = true
+#	if Input.is_action_just_pressed("move_up") and facing != "up":
+#		facing = "up"
+#		playback.travel("right")
+#	if Input.is_action_just_pressed("move_down") and facing != "down":
+#		facing = "down"
+#		playback.travel("right")
+#	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
+#		facing = "idle"
+#		playback.travel("idle")
+	if(linear_vel.x == 0 && linear_vel.y == 0 ):
 		playback.travel("idle")
+	else:
+		playback.travel("right")
+	#print(linear_vel);
 
 func _on_Timer_timeout():
 	print("can kick")

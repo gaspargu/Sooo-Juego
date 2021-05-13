@@ -1,16 +1,19 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://sprites/pipo-xmaschara03.png" type="Texture" id=1]
+[ext_resource path="res://sprites/personaje_01/Renegade_Run_1_strip4.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://sprites/personaje_01/Renegade_Idle_1_strip4.png" type="Texture" id=3]
+[ext_resource path="res://sprites/personaje_01/Renegade_Knock_Out.png" type="Texture" id=4]
+[ext_resource path="res://sprites/personaje_01/Renegade_Kick_1.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.5863, 15.9357 )
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 46.136
+height = 39.3255
 
-[sub_resource type="Animation" id=2]
-resource_name = "down"
-length = 1.2
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.4
 loop = true
-step = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -18,15 +21,51 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 1, 0 ]
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0803391 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0803391 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0803391 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
-loop = true
+[sub_resource type="Animation" id=14]
+resource_name = "muerto"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -37,33 +76,100 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "patada"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "kick"
-
-[sub_resource type="Animation" id=5]
-length = 1.2
-loop = true
-step = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 4, 3 ]
-}
-
 [sub_resource type="Animation" id=6]
-length = 1.2
+length = 0.4
 loop = true
-step = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -71,101 +177,91 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 6, 7, 8, 7 ]
+"values": [ 0, 1, 2, 3 ]
 }
-
-[sub_resource type="Animation" id=7]
-length = 1.2
-loop = true
-step = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 10, 11, 10, 9 ]
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "down"
-
-[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
-animation = "left"
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "muerto"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "patada"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "right"
-
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "up"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
-
-[sub_resource type="AnimationNodeStateMachine" id=33]
-states/down/node = SubResource( 8 )
-
-states/down/position = Vector2( 496, 202 )
-states/idle/node = SubResource( 9 )
-states/idle/position = Vector2( 496, 115 )
-states/left/node = SubResource( 10 )
-states/left/position = Vector2( 298, 115 )
-states/right/node = SubResource( 11 )
-states/right/position = Vector2( 688, 107 )
-states/up/node = SubResource( 12 )
-states/up/position = Vector2( 496, 34 )
-
-transitions = [ "up", "idle", SubResource( 13 ), "idle", "up", SubResource( 14 ), "right", "idle", SubResource( 15 ), "idle", "right", SubResource( 16 ), "idle", "down", SubResource( 17 ), "down", "up", SubResource( 18 ), "up", "down", SubResource( 19 ), "down", "right", SubResource( 20 ), "right", "down", SubResource( 21 ), "right", "up", SubResource( 22 ), "up", "right", SubResource( 23 ), "idle", "left", SubResource( 24 ), "left", "up", SubResource( 25 ), "up", "left", SubResource( 26 ), "left", "down", SubResource( 27 ), "down", "left", SubResource( 28 ), "left", "right", SubResource( 29 ), "right", "left", SubResource( 30 ), "left", "idle", SubResource( 31 ), "down", "idle", SubResource( 32 ) ]
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/idle/node = SubResource( 8 )
+states/idle/position = Vector2( 320, 91 )
+states/muerto/node = SubResource( 18 )
+states/muerto/position = Vector2( 92, 80 )
+states/patada/node = SubResource( 16 )
+states/patada/position = Vector2( 636, 91 )
+states/right/node = SubResource( 9 )
+states/right/position = Vector2( 320, 200 )
+transitions = [ "idle", "right", SubResource( 19 ), "right", "idle", SubResource( 20 ), "idle", "patada", SubResource( 22 ), "patada", "idle", SubResource( 23 ), "idle", "muerto", SubResource( 24 ), "muerto", "idle", SubResource( 25 ), "right", "patada", SubResource( 26 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -173,19 +269,20 @@ start_node = "idle"
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-hframes = 3
-vframes = 4
-frame = 1
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+position = Vector2( -2.91913, 0.446285 )
+shape = SubResource( 7 )
 
 [node name="Name" type="Label" parent="."]
-margin_left = -75.0
-margin_top = -50.0
-margin_right = 75.0
-margin_bottom = -36.0
+margin_left = -74.5302
+margin_top = -78.4425
+margin_right = 75.4698
+margin_bottom = -64.4425
 rect_min_size = Vector2( 150, 0 )
 align = 1
 clip_text = true
@@ -194,19 +291,27 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/down = SubResource( 2 )
+playback_speed = 0.8
 anims/idle = SubResource( 3 )
-anims/kick = SubResource( 4 )
-anims/left = SubResource( 5 )
+anims/muerto = SubResource( 14 )
+anims/patada = SubResource( 15 )
 anims/right = SubResource( 6 )
-anims/up = SubResource( 7 )
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 33 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 34 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 13 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -29.9661, -22.4746 )
+rotation = 1.21999
+current = true
+offset_h = 0.11
+drag_margin_left = 0.16
+drag_margin_bottom = 0.31
+editor_draw_drag_margin = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

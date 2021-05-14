@@ -6,11 +6,11 @@
 [ext_resource path="res://sprites/personaje_01/Renegade_Knock_Out.png" type="Texture" id=4]
 [ext_resource path="res://sprites/personaje_01/Renegade_Kick_1.png" type="Texture" id=5]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 46.136
 height = 39.3255
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 0.4
 loop = true
@@ -63,7 +63,7 @@ tracks/3/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 resource_name = "muerto"
 length = 0.5
 tracks/0/type = "value"
@@ -115,7 +115,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=4]
 resource_name = "patada"
 length = 0.1
 tracks/0/type = "value"
@@ -167,7 +167,7 @@ tracks/3/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -219,49 +219,49 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "muerto"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "patada"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "right"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
-[sub_resource type="AnimationNodeStateMachine" id=12]
-states/idle/node = SubResource( 8 )
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/idle/node = SubResource( 6 )
 states/idle/position = Vector2( 320, 91 )
-states/muerto/node = SubResource( 18 )
+states/muerto/node = SubResource( 7 )
 states/muerto/position = Vector2( 92, 80 )
-states/patada/node = SubResource( 16 )
+states/patada/node = SubResource( 8 )
 states/patada/position = Vector2( 636, 91 )
 states/right/node = SubResource( 9 )
 states/right/position = Vector2( 320, 200 )
-transitions = [ "idle", "right", SubResource( 19 ), "right", "idle", SubResource( 20 ), "idle", "patada", SubResource( 22 ), "patada", "idle", SubResource( 23 ), "idle", "muerto", SubResource( 24 ), "muerto", "idle", SubResource( 25 ), "right", "patada", SubResource( 26 ) ]
+transitions = [ "idle", "right", SubResource( 10 ), "right", "idle", SubResource( 11 ), "idle", "patada", SubResource( 12 ), "patada", "idle", SubResource( 13 ), "idle", "muerto", SubResource( 14 ), "muerto", "idle", SubResource( 15 ), "right", "patada", SubResource( 16 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -272,11 +272,11 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.91913, 0.446285 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="Name" type="Label" parent="."]
 margin_left = -74.5302
@@ -292,19 +292,19 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.8
-anims/idle = SubResource( 3 )
-anims/muerto = SubResource( 14 )
-anims/patada = SubResource( 15 )
-anims/right = SubResource( 6 )
+anims/idle = SubResource( 2 )
+anims/muerto = SubResource( 3 )
+anims/patada = SubResource( 4 )
+anims/right = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 12 )
+tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 13 )
+parameters/playback = SubResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -29.9661, -22.4746 )

@@ -1,14 +1,70 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sprites/personaje_01/Renegade_Run_1_strip4.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://sprites/personaje_01/Renegade_Idle_1_strip4.png" type="Texture" id=3]
 [ext_resource path="res://sprites/personaje_01/Renegade_Knock_Out.png" type="Texture" id=4]
 [ext_resource path="res://sprites/personaje_01/Renegade_Kick_1.png" type="Texture" id=5]
+[ext_resource path="res://sfx/paso.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/patada-normal.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sfx/caida.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 46.136
 height = 39.3255
+
+[sub_resource type="Animation" id=20]
+resource_name = "correr"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -114,6 +170,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 4 ) ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("caida")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "patada"
@@ -165,6 +235,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("patada")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.15,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=5]
@@ -218,6 +302,24 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 1 ) ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("sonido_paso")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.321734,
+"start_offset": 0.02,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.321734,
+"start_offset": 0.02,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 0.2 )
+}
 
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "idle"
@@ -257,7 +359,7 @@ states/muerto/position = Vector2( 92, 80 )
 states/patada/node = SubResource( 8 )
 states/patada/position = Vector2( 636, 91 )
 states/right/node = SubResource( 9 )
-states/right/position = Vector2( 320, 200 )
+states/right/position = Vector2( 320, 204 )
 transitions = [ "idle", "right", SubResource( 10 ), "right", "idle", SubResource( 11 ), "idle", "patada", SubResource( 12 ), "patada", "idle", SubResource( 13 ), "idle", "muerto", SubResource( 14 ), "muerto", "idle", SubResource( 15 ), "right", "patada", SubResource( 16 ) ]
 start_node = "idle"
 
@@ -272,7 +374,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 hframes = 4
 frame = 3
 
@@ -294,6 +396,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.8
+method_call_mode = 1
+anims/correr = SubResource( 20 )
 anims/idle = SubResource( 2 )
 anims/muerto = SubResource( 3 )
 anims/patada = SubResource( 4 )
@@ -305,7 +409,6 @@ one_shot = true
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -320,4 +423,13 @@ editor_draw_drag_margin = true
 [node name="Microfono" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 19 )
 bus = "record-bus"
+
+[node name="sonido_paso" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="patada" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="caida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

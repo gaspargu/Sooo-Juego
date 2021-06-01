@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/caida.wav-a059aaeb2f419f1a880805bfc8f8d474.sample"
+
+[deps]
+
+source_file="res://sfx/caida.wav"
+dest_files=[ "res://.import/caida.wav-a059aaeb2f419f1a880805bfc8f8d474.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

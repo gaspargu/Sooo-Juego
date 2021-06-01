@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/en-el-loby.ogg-cdab450d8a3d3a4a3ce9a66c7bcbca89.oggstr"
+
+[deps]
+
+source_file="res://musica/en-el-loby.ogg"
+dest_files=[ "res://.import/en-el-loby.ogg-cdab450d8a3d3a4a3ce9a66c7bcbca89.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

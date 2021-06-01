@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/comenzar.wav-40d9e6bf4ba1fa79ada826eabbad33b5.sample"
+path="res://.import/paso.wav-5ef72bad1fa5d82231b0dc59fcd56eb1.sample"
 
 [deps]
 
-source_file="res://sonidos/comenzar.wav"
-dest_files=[ "res://.import/comenzar.wav-40d9e6bf4ba1fa79ada826eabbad33b5.sample" ]
+source_file="res://sfx/paso.wav"
+dest_files=[ "res://.import/paso.wav-5ef72bad1fa5d82231b0dc59fcd56eb1.sample" ]
 
 [params]
 

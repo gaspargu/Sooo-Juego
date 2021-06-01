@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://gui/crear.png" type="Texture" id=2]
 [ext_resource path="res://gui/unirse.png" type="Texture" id=3]
-[ext_resource path="res://sonidos/little town - orchestral.ogg" type="AudioStream" id=4]
+[ext_resource path="res://musica/en-el-loby.ogg" type="AudioStream" id=4]
 [ext_resource path="res://gui/crear-hover.png" type="Texture" id=5]
 [ext_resource path="res://gui/unirse-hover.png" type="Texture" id=6]
 
@@ -17,6 +17,8 @@ margin_left = 667.049
 margin_top = 93.0972
 margin_right = 1037.05
 margin_bottom = 198.097
+hint_tooltip = "Crear una nueva partida para invitar a tus amigos"
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 5 )
 __meta__ = {
@@ -188,6 +190,7 @@ margin_left = 257.449
 margin_top = 93.2327
 margin_right = 629.449
 margin_bottom = 197.233
+hint_tooltip = "Unirse a una partida organizada por un amigo utilizando su dirección ip"
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 6 )
 __meta__ = {

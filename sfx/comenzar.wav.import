@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/comenzar.wav-e57f3fdacd76148bdff1959c313b82b5.sample"
+
+[deps]
+
+source_file="res://sfx/comenzar.wav"
+dest_files=[ "res://.import/comenzar.wav-e57f3fdacd76148bdff1959c313b82b5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

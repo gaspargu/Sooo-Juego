@@ -188,3 +188,15 @@ func _port_opened(result):
 	if not result:
 		_show_connect()
 		$CanvasLayer/Panel/Connect/Error.text = "Port %d couldn't be opened!" % PORT
+
+# al presionar el boton `CREAR`
+func _on_botoncrear_pressed():
+	
+	# reproducir el audio con nombre `click`
+	$click.play()
+
+# al presionar el boton `UNIRSE`
+func _on_bonounirese_pressed():
+	
+	# reproducir el audio con nombre `click`
+	$click.play()

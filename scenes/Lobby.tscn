@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://gui/crear.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://musica/en-el-loby.ogg" type="AudioStream" id=4]
 [ext_resource path="res://gui/crear-hover.png" type="Texture" id=5]
 [ext_resource path="res://gui/unirse-hover.png" type="Texture" id=6]
+[ext_resource path="res://gui/crear-presionado.png" type="Texture" id=7]
+[ext_resource path="res://sfx/click.wav" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -13,13 +15,14 @@
 script = ExtResource( 1 )
 
 [node name="boton-crear" type="TextureButton" parent="."]
-margin_left = 667.049
-margin_top = 93.0972
-margin_right = 1037.05
-margin_bottom = 198.097
+margin_left = 667.0
+margin_top = 93.0
+margin_right = 1037.0
+margin_bottom = 198.0
 hint_tooltip = "Crear una nueva partida para invitar a tus amigos"
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,3 +205,8 @@ __meta__ = {
 stream = ExtResource( 4 )
 volume_db = -2.027
 autoplay = true
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+[connection signal="pressed" from="boton-crear" to="." method="_on_botoncrear_pressed"]
+[connection signal="pressed" from="bono-unirese" to="." method="_on_bonounirese_pressed"]

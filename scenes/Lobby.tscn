@@ -191,6 +191,7 @@ margin_top = 93.2327
 margin_right = 629.449
 margin_bottom = 197.233
 hint_tooltip = "Unirse a una partida organizada por un amigo utilizando su dirección ip"
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 6 )
 __meta__ = {

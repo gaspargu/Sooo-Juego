@@ -7,7 +7,7 @@
 [ext_resource path="res://PowerUps.gd" type="Script" id=5]
 [ext_resource path="res://sprites/su4 Student male 07.png" type="Texture" id=6]
 [ext_resource path="res://sprites/pipo-xmaschara03.png" type="Texture" id=7]
-[ext_resource path="res://sonidos/en-el-juego.ogg" type="AudioStream" id=8]
+[ext_resource path="res://musica/en-el-juego.ogg" type="AudioStream" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilesheet.png 0"

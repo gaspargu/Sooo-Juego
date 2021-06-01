@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://gui/crear.png" type="Texture" id=2]
+[ext_resource path="res://gui/unirse.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="boton-crear" type="TextureButton" parent="."]
+margin_left = 667.049
+margin_top = 93.0972
+margin_right = 1037.05
+margin_bottom = 198.097
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -14,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -100.0
-margin_right = 150.0
-margin_bottom = 100.0
+margin_left = -225.135
+margin_top = -116.78
+margin_right = 207.865
+margin_bottom = 158.22
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -166,3 +178,15 @@ margin_right = 250.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 custom_styles/separator = SubResource( 1 )
+
+[node name="bono-unirese" type="TextureButton" parent="."]
+margin_left = 257.449
+margin_top = 93.2327
+margin_right = 629.449
+margin_bottom = 197.233
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

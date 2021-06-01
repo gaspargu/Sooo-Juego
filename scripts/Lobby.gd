@@ -26,6 +26,9 @@ func _ready():
 		name_label.text = desktop_path[desktop_path.size() - 2]
 	
 	$CanvasLayer/Panel/Connect/HBoxContainer/Host.connect("pressed", self, "_host_pressed")
+	$"boton-crear".connect("pressed", self, "_host_pressed")
+	$"bono-unirese".connect("pressed", self, "_join_pressed")
+	
 	$CanvasLayer/Panel/Connect/HBoxContainer2/Join.connect("pressed", self, "_join_pressed")
 	
 	$CanvasLayer/Panel/Waiting/HBoxContainer/Ready.connect("pressed", self, "_ready_pressed")

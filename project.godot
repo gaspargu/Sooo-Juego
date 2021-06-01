@@ -17,6 +17,8 @@ _global_script_class_icons={
 
 config/name="Sooo Juego"
 run/main_scene="res://scenes/Lobby.tscn"
+boot_splash/image="res://imagenes/splash.png"
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [audio]
@@ -69,4 +71,5 @@ muerto={
 
 [rendering]
 
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

@@ -69,10 +69,15 @@ func _physics_process(delta: float) -> void:
 #	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
 #		facing = "idle"
 #		playback.travel("idle")
-	if(linear_vel.x == 0 && linear_vel.y == 0 ):
+	if(abs(linear_vel.x) < 5 && abs(linear_vel.y) < 5):
 		playback.travel("idle")
-	else:
+	if(abs(linear_vel.x) >= 5 || abs(linear_vel.y) >= 5):
 		playback.travel("right")
+#	else:
+#		playback.travel("right")
+	
+	print("X:",  abs(linear_vel.x))
+	print("Y:",  abs(linear_vel.y))
 	#print(linear_vel);
 
 func _on_Timer_timeout():

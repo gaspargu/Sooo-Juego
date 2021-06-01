@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/comenzar.wav-40d9e6bf4ba1fa79ada826eabbad33b5.sample"
+
+[deps]
+
+source_file="res://sonidos/comenzar.wav"
+dest_files=[ "res://.import/comenzar.wav-40d9e6bf4ba1fa79ada826eabbad33b5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

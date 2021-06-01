@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://gui/crear.png" type="Texture" id=2]
 [ext_resource path="res://gui/unirse.png" type="Texture" id=3]
+[ext_resource path="res://sonidos/little town - orchestral.ogg" type="AudioStream" id=4]
+[ext_resource path="res://gui/crear-hover.png" type="Texture" id=5]
+[ext_resource path="res://gui/unirse-hover.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -15,6 +18,7 @@ margin_top = 93.0972
 margin_right = 1037.05
 margin_bottom = 198.097
 texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,8 +189,12 @@ margin_top = 93.2327
 margin_right = 629.449
 margin_bottom = 197.233
 texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -2.027
+autoplay = true

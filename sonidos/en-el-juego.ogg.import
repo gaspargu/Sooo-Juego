@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/en-el-juego.ogg-f6afa6064f09604052788a6b86d33fbd.oggstr"
+
+[deps]
+
+source_file="res://sonidos/en-el-juego.ogg"
+dest_files=[ "res://.import/en-el-juego.ogg-f6afa6064f09604052788a6b86d33fbd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

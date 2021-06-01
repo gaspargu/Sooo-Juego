@@ -374,9 +374,8 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 hframes = 4
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.91913, 0.446285 )
@@ -409,6 +408,7 @@ one_shot = true
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

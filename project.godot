@@ -19,6 +19,10 @@ config/name="Sooo Juego"
 run/main_scene="res://scenes/Lobby.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+enable_audio_input=true
+
 [autoload]
 
 Game="*res://scripts/Game.gd"

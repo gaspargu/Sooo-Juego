@@ -10,9 +10,12 @@ var can_kick = true
 # networking
 puppet var puppet_pos = Vector2()
 puppet var puppet_target_vel = Vector2()
+var index = AudioServer.get_bus_index("record-bus")
 
 func _ready() -> void:
 	puppet_pos = position
+	
+	
 
 func init(nid):
 	set_network_master(nid)
@@ -21,6 +24,7 @@ func init(nid):
 	name = str(nid)
 
 func _physics_process(delta: float) -> void:
+	print(index)
 	var target_vel
 	if is_network_master():
 		target_vel = Vector2(

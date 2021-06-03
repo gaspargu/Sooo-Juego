@@ -1,6 +1,6 @@
 extends Node2D
 
-var PORT = 1743
+var PORT = 1744
 var MAX_CLIENTS = 3
 
 # {id: ready}

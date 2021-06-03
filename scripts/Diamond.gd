@@ -10,6 +10,8 @@ func on_time_out():
 
 func on_body_entered(body: Node):
 	if body.is_in_group("player"):
+		var player: Player = body
+		player.blink_mode = true
+		player.get_node("BlinkTimer").start()
 		queue_free()
 		
-

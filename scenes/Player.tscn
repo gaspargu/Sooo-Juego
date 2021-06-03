@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sprites/personaje_01/Renegade_Run_1_strip4.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -368,6 +368,14 @@ start_node = "idle"
 
 [sub_resource type="AudioStreamMicrophone" id=21]
 
+[sub_resource type="ParticlesMaterial" id=22]
+emission_shape = 2
+emission_box_extents = Vector3( 12, 25, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -377,7 +385,8 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 hframes = 4
-frame = 1
+frame = 3
+
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.91913, 0.446285 )
@@ -436,5 +445,19 @@ stream = ExtResource( 7 )
 
 [node name="caida" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 2, 2 )
+emitting = false
+amount = 10
+process_material = SubResource( 22 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -6,6 +6,7 @@ var SPEED_SQUARED = SPEED * SPEED
 var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
+var is_Soo = false
 
 var patadas = 0
 
@@ -26,7 +27,7 @@ func init(nid):
 	name = str(nid)
 
 func _physics_process(delta: float) -> void:
-	print(index)
+#	print(index)
 	var target_vel
 	if is_network_master():
 		target_vel = Vector2(
@@ -52,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		playback.travel("patada")
 		print("just kick")
 		pega_patada()
-#		can_kick = false
+		can_kick = false
 		$Timer.start()
 		return
 	if Input.is_action_just_pressed("muerto"):
@@ -72,16 +73,16 @@ func _physics_process(delta: float) -> void:
 #	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
 #		facing = "idle"
 #		playback.travel("idle")
-	if(abs(linear_vel.x) < 5 && abs(linear_vel.y) < 5):
+	if(abs(linear_vel.x) < 0.1 && abs(linear_vel.y) < 0.1):
 		playback.travel("idle")
-	if(abs(linear_vel.x) >= 5 || abs(linear_vel.y) >= 5):
+	if(abs(linear_vel.x) >= 0.1 || abs(linear_vel.y) >= 0.1):
 		playback.travel("right")
 #	else:
 #		playback.travel("right")
 	
-	print("X:",  abs(linear_vel.x))
-	print("Y:",  abs(linear_vel.y))
-	print("patadas:",  patadas)
+#	print("X:",  abs(linear_vel.x))
+#	print("Y:",  abs(linear_vel.y))
+#	print("patadas:",  patadas)
 	#print(linear_vel);
 
 func _on_Timer_timeout():
@@ -91,6 +92,9 @@ func _on_Timer_timeout():
 func set_text(text):
 	$Sprite.texture = text
 	
+func set_Soo(doit: bool):
+	is_Soo = doit
+	$Name.uppercase = doit
 
 func pega_patada():
 	patadas += 1

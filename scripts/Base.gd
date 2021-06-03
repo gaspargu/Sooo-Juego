@@ -1,10 +1,10 @@
 extends Area2D
-
+var player_Inside = false
 var started = false
-var player_Inside = true
 
 func _ready() -> void:
 	connect("body_entered", self, "on_body_entered")
+	connect("body_exited", self, "on_body_exited")
 
 func _on_Base_body_exited(body: Node):
 	player_Inside = false

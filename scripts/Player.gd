@@ -8,7 +8,9 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
 var is_Soo = false
 
+
 var patadas = 0
+
 
 # networking
 puppet var puppet_pos = Vector2()
@@ -100,4 +102,3 @@ func pega_patada():
 	patadas += 1
 	var node = get_parent().get_node("IntefazPuntaje")
 	print("label:",  node)
-

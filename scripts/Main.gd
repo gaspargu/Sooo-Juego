@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	Game.connect("player_disconnected", self, "_end_game_id")
 	Game.connect("server_disconnected", self, "_end_game")
+
 	
 	NPlayers = len(Game.players.keys())
 	print("NPlayers: ", NPlayers)

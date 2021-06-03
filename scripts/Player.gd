@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 var linear_vel = Vector2.ZERO
 var SPEED = 400
@@ -6,6 +7,9 @@ var SPEED_SQUARED = SPEED * SPEED
 var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
+var flash_mode = false
+var blink_mode = false
+
 
 var patadas = 0
 
@@ -16,6 +20,8 @@ var index = AudioServer.get_bus_index("record-bus")
 
 func _ready() -> void:
 	puppet_pos = position
+	$FlashTimer.connect("timeout", self, "on_flashtime_out")
+	$BlinkTimer.connect("timeout", self, "on_blinktime_out")
 	
 	
 
@@ -36,6 +42,16 @@ func _physics_process(delta: float) -> void:
 		rset("puppet_target_vel", target_vel)
 	else:
 		target_vel = puppet_target_vel
+		
+	# Power Ups modes	
+	if flash_mode:
+		SPEED = 600
+	else:
+		SPEED = 200
+	if blink_mode:
+		$Particles2D.emitting = true
+	else:
+		$Particles2D.emitting = false
 	
 	linear_vel = lerp(linear_vel, target_vel * SPEED, 0.8)
 	linear_vel = move_and_slide(linear_vel, Vector2.UP)
@@ -87,6 +103,12 @@ func _physics_process(delta: float) -> void:
 func _on_Timer_timeout():
 	print("can kick")
 	can_kick = true
+	
+func on_flashtime_out():
+	flash_mode = false
+	
+func on_blinktime_out():
+	blink_mode = false
 
 func set_text(text):
 	$Sprite.texture = text

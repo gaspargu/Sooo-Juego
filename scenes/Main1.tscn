@@ -877,6 +877,7 @@ position = Vector2( 512, 272 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/StaticBody2D"]
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="Walls/StaticBody2D"]

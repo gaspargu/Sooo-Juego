@@ -7,6 +7,8 @@ var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
 
+var patadas = 0
+
 # networking
 puppet var puppet_pos = Vector2()
 puppet var puppet_target_vel = Vector2()
@@ -49,6 +51,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("kick") and can_kick:
 		playback.travel("patada")
 		print("just kick")
+		pega_patada()
 #		can_kick = false
 		$Timer.start()
 		return
@@ -78,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	print("X:",  abs(linear_vel.x))
 	print("Y:",  abs(linear_vel.y))
+	print("patadas:",  patadas)
 	#print(linear_vel);
 
 func _on_Timer_timeout():
@@ -86,3 +90,10 @@ func _on_Timer_timeout():
 
 func set_text(text):
 	$Sprite.texture = text
+	
+
+func pega_patada():
+	patadas += 1
+	var node = get_parent().get_node("IntefazPuntaje")
+	print("label:",  node)
+

@@ -3,6 +3,7 @@ extends Node2D
 var Player = preload("res://scenes/Player.tscn")
 
 
+
 func _ready() -> void:
 	
 	Game.connect("player_disconnected", self, "_end_game_id")
@@ -25,5 +26,7 @@ func _end_game_id(id):
 func _end_game():
 	Game.call_deferred("end_game")
 	get_tree().change_scene("res://scenes/Lobby.tscn")
+	
 
+ 
 

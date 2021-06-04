@@ -180,13 +180,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:is_kicking")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:is_kicking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -295,86 +295,86 @@ orbit_velocity_random = 0.0
 scale = 3.0
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 24, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 32 )
 
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 24, 32 )
+
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 10 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 10 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="SpriteFrames" id=37]
 animations = [ {
 "frames": [ SubResource( 23 ) ],
 "loop": true,
-"name": "morir",
+"name": "patada",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ) ],
 "loop": true,
-"name": "patada",
+"name": "morir",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
-"name": "correr",
+"name": "respirar",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
-"name": "caminar",
+"name": "correr",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
-"name": "respirar",
+"name": "caminar",
 "speed": 5.0
 } ]
 
@@ -467,6 +467,5 @@ process_material = SubResource( 22 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 37 )
 animation = "respirar"
-frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

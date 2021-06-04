@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 #		facing = "idle"
 #		playback.travel("idle")		
 	if target_vel.x != 0:
-		$Sprite.scale.x = 4*sign(target_vel.x)
+		$AnimatedSprite.scale.x = 4*sign(target_vel.x)
 		
 	
 	if not is_kicking:
@@ -122,7 +122,7 @@ func _input(event):
 	if event.is_action_pressed("kick") and can_kick:
 		rpc("pega_patada")
 		return
-	
+
 		
 	if event.is_action_pressed("muerto"):
 		print("presiona M de muerto")

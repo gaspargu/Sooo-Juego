@@ -7,13 +7,18 @@ var SPEED_SQUARED = SPEED * SPEED
 var facing = "idle"
 onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
+
+var is_Soo = false
+
 var flash_mode = false
 var blink_mode = false
 export var is_kicking = false 
 
 
 var power = 0
+
 var patadas = 0
+
 
 # networking
 puppet var puppet_pos = Vector2()
@@ -38,6 +43,7 @@ func _process(delta):
 	power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("record-bus2"), 0)
 
 func _physics_process(delta: float) -> void:
+#	print(index)
 
 	var target_vel
 	if is_network_master():
@@ -79,6 +85,7 @@ func _physics_process(delta: float) -> void:
 #		playback.travel("right")
 #	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
 #		facing = "idle"
+
 #		playback.travel("idle")		
 	if target_vel.x != 0:
 		$AnimatedSprite.scale.x = 4*sign(target_vel.x)
@@ -90,17 +97,18 @@ func _physics_process(delta: float) -> void:
 		if(abs(linear_vel.x) >= 5 || abs(linear_vel.y) >= 5):
 			playback.travel("right")
 		
-	
-	
+
 #	else:
 #		playback.travel("right")
 	
 #	print("X:",  abs(linear_vel.x))
 #	print("Y:",  abs(linear_vel.y))
+
 	#print("patadas:",  patadas)
 	
 	
 	#print("microfono: ", power)
+
 	#print(linear_vel);
 
 func _on_Timer_timeout():
@@ -116,12 +124,18 @@ func on_blinktime_out():
 func set_text(text):
 	$Sprite.texture = text
 	
+
+func set_Soo(doit: bool):
+	is_Soo = doit
+	$Name.uppercase = doit
+
 func _input(event):
 	if not is_network_master():
 		return
 	if event.is_action_pressed("kick") and can_kick:
 		rpc("pega_patada")
 		return
+
 
 		
 	if event.is_action_pressed("muerto"):
@@ -137,6 +151,3 @@ remotesync func pega_patada():
 	playback.travel("patada")
 	print("just kick")
 	$Timer.start()
-	
-	
-

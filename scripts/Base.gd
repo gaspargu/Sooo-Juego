@@ -1,5 +1,5 @@
 extends Area2D
-var player_Inside = false
+var player_Inside = true
 var started = false
 
 func _ready() -> void:

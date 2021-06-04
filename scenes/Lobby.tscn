@@ -266,6 +266,5 @@ volume_db = -2.027
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-
 [connection signal="pressed" from="boton-crear" to="." method="_on_botoncrear_pressed"]
 [connection signal="pressed" from="bono-unirese" to="." method="_on_bonounirese_pressed"]

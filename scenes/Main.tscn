@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/Base.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
@@ -708,7 +708,7 @@ points = PoolVector2Array( 64, 96, 64, 192, 64, 192 )
 39/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 50, 50 )
+extents = Vector2( 56.376, 54.708 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -779,6 +779,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 1509.46, 25.8374 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 31.6743, 918.756 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 35.3643, 945.139 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -795,12 +804,11 @@ format = 1
 tile_data = PoolIntArray( -1179609, 37, 0, -1048583, 1073741850, 0, -983001, 37, 0, -851949, 37, 0, -851921, 36, 0, -589831, 26, 0, -327639, 38, 0, -327634, 38, 0, -327629, 38, 0, -131079, 25, 0, -131078, 24, 0, -196607, 536870936, 0, -196600, 24, 0, -196593, 536870936, 0, -196586, 24, 0, -196579, 536870936, 0, -196572, 24, 0, -196565, 536870936, 0, -196558, 24, 0, -25, 536870941, 0, -2, 19, 0, -1, 536870932, 0, -65530, 536870932, 0, -65523, 1610612760, 0, -65517, 536870932, 0, -65510, 20, 0, -65503, 21, 0, 65534, 26, 0, 33, 22, 0, 458750, -1610612712, 0, 393227, 536870924, 0, 393233, 12, 0, 393249, -1073741800, 0, 458762, 536870917, 0, 458763, 536870918, 0, 458764, 536870919, 0, 458765, 536870920, 0, 458766, 536870921, 0, 458769, 9, 0, 458770, 8, 0, 458771, 7, 0, 458772, 6, 0, 458773, 5, 0, 655323, 536870924, 0, 655327, 12, 0, 655331, 536870924, 0, 655335, 12, 0, 655339, 536870924, 0, 655343, 12, 0, 655347, 536870924, 0, 655351, 12, 0, 655355, 536870924, 0, 720859, 1073741857, 0, 720863, 33, 0, 720867, 1073741857, 0, 720871, 33, 0, 720875, 1073741857, 0, 720879, 33, 0, 720883, 1073741857, 0, 720887, 33, 0, 720891, 1073741857, 0, 655370, 536870925, 0, 655371, 536870926, 0, 655372, 536870927, 0, 655373, 536870928, 0, 655374, 536870929, 0, 655375, 536870930, 0, 655376, 18, 0, 655377, 17, 0, 655378, 16, 0, 655379, 15, 0, 655380, 14, 0, 655381, 13, 0, 786395, 1073741836, 0, 786399, 1610612748, 0, 786403, 1073741836, 0, 786407, 1610612748, 0, 786411, 1073741836, 0, 786415, 1610612748, 0, 786419, 1073741836, 0, 786423, 1610612748, 0, 786427, 1073741836, 0, 851966, 26, 0, 786465, 22, 0, 983044, 25, 0, 1310718, 25, 0, 1310719, 24, 0, 1245190, 536870936, 0, 1245197, 536870936, 0, 1245203, 536870936, 0, 1245210, 24, 0, 1245217, 23, 0, 1507304, 536870939, 0, 1507341, 31, 0, 1638366, 536870939, 0, 1703904, 536870939, 0, 1638418, 32, 0, 2031636, 536870940, 0, 2228228, 536870951, 0, 2228229, 536870951, 0, 2293763, 536870951, 0, 2293764, 536870951, 0 )
 
 [node name="Base" type="Area2D" parent="."]
-position = Vector2( 199.624, 200.708 )
+position = Vector2( 200, 200 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
-
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Base"]
 scale = Vector2( 2.4, 2.4 )
@@ -827,34 +835,35 @@ position = Vector2( 824, 400 )
 [node name="Sprite1" type="Sprite" parent="Textures"]
 visible = false
 texture = ExtResource( 7 )
-hframes = 3
 vframes = 4
+hframes = 3
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="Textures"]
 visible = false
 texture = ExtResource( 4 )
-hframes = 3
 vframes = 4
+hframes = 3
 frame = 1
 
 [node name="Sprite3" type="Sprite" parent="Textures"]
 visible = false
-hframes = 3
 vframes = 4
+hframes = 3
 frame = 1
 
 [node name="Sprite4" type="Sprite" parent="Textures"]
 visible = false
 texture = ExtResource( 6 )
-hframes = 3
 vframes = 4
+hframes = 3
 frame = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 8 )
 volume_db = -8.0
+autoplay = true
 
 [node name="InterfazPuntaje" parent="." instance=ExtResource( 9 )]
 margin_left = 10.0
@@ -862,14 +871,10 @@ margin_top = 10.0
 margin_right = 87.0
 margin_bottom = 42.0
 
-
 [node name="TimerRonda" type="Timer" parent="."]
 pause_mode = 2
 wait_time = 2.0
 one_shot = true
-[connection signal="body_entered" from="Base" to="Base" method="_on_Base_body_entered"]
-[connection signal="body_exited" from="Base" to="Base" method="_on_Base_body_exited"]
-[connection signal="timeout" from="TimerRonda" to="." method="_on_TimerRonda_timeout"]
 
 [node name="PowerUps2" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -880,21 +885,21 @@ autostart = true
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+[node name="Fountain" type="StaticBody2D" parent="Walls"]
 position = Vector2( 512, 272 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/StaticBody2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/Fountain"]
 frames = SubResource( 7 )
 frame = 1
 playing = true
 
-[node name="Particles2D" type="Particles2D" parent="Walls/StaticBody2D"]
+[node name="Particles2D" type="Particles2D" parent="Walls/Fountain"]
 modulate = Color( 0.0745098, 0.807843, 0.823529, 1 )
 position = Vector2( 0, -68 )
 scale = Vector2( 5, 5 )
 process_material = SubResource( 8 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Fountain"]
 polygon = PoolVector2Array( -0.847137, 87.0115, 6.56909, 78.5358, 51.0665, 65.8223, 63.7802, 46.7519, 73.3153, 42.514, 73.3153, 13.9086, 41.6594, -15.4656, 2.13727, -27.6586, -43.2711, -15.4656, -65.5549, 8.92044, -73.123, 11.8636, -73.9639, 44.2381, -65.1345, 47.6017, -42.4302, 71.5672, -8.37396, 78.7148 )
 
 [node name="Cactus1" type="StaticBody2D" parent="Walls"]
@@ -998,7 +1003,7 @@ shape = SubResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/Fire"]
 frames = SubResource( 18 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Fire2" type="StaticBody2D" parent="Walls"]
@@ -1012,5 +1017,33 @@ shape = SubResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/Fire2"]
 frames = SubResource( 18 )
-frame = 1
 playing = true
+
+[node name="Up" type="StaticBody2D" parent="Walls"]
+position = Vector2( 188.287, -650.194 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Up"]
+position = Vector2( 117.599, 46.3267 )
+shape = SubResource( 19 )
+
+[node name="Right" type="StaticBody2D" parent="Walls"]
+position = Vector2( 1853.78, 284.503 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right"]
+shape = SubResource( 20 )
+
+[node name="Down" type="StaticBody2D" parent="Walls"]
+position = Vector2( 319.883, 1238.21 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Down"]
+position = Vector2( -221.746, 141.111 )
+polygon = PoolVector2Array( -1285.07, -197.342, -5.62659, -194.167, 54.6946, -273.537, 1724.64, -264.013, 1727.82, -137.021, -1288.25, -137.021 )
+
+[node name="Left" type="StaticBody2D" parent="Walls"]
+position = Vector2( -1213.7, 361.064 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left"]
+shape = SubResource( 21 )
+[connection signal="body_entered" from="Base" to="Base" method="_on_Base_body_entered"]
+[connection signal="body_exited" from="Base" to="Base" method="_on_Base_body_exited"]
+[connection signal="timeout" from="TimerRonda" to="." method="_on_TimerRonda_timeout"]

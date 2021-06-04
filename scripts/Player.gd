@@ -14,9 +14,7 @@ var flash_mode = false
 var blink_mode = false
 export var is_kicking = false 
 
-
 var power = 0
-
 var patadas = 0
 
 
@@ -98,21 +96,14 @@ func _physics_process(delta: float) -> void:
 			playback.travel("right")
 		
 
-#	else:
-#		playback.travel("right")
-	
 #	print("X:",  abs(linear_vel.x))
 #	print("Y:",  abs(linear_vel.y))
-
 	#print("patadas:",  patadas)
-	
-	
 	#print("microfono: ", power)
-
 	#print(linear_vel);
 
 func _on_Timer_timeout():
-	print("can kick")
+	#print("can kick")
 	can_kick = true
 	
 func on_flashtime_out():
@@ -124,7 +115,6 @@ func on_blinktime_out():
 func set_text(text):
 	$Sprite.texture = text
 	
-
 func set_Soo(doit: bool):
 	is_Soo = doit
 	$Name.uppercase = doit
@@ -135,7 +125,6 @@ func _input(event):
 	if event.is_action_pressed("kick") and can_kick:
 		rpc("pega_patada")
 		return
-
 
 		
 	if event.is_action_pressed("muerto"):
@@ -149,5 +138,5 @@ remotesync func pega_patada():
 	print("label:",  node)
 	is_kicking = true
 	playback.travel("patada")
-	print("just kick")
+	can_kick = false
 	$Timer.start()

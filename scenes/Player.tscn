@@ -453,5 +453,6 @@ process_material = SubResource( 22 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 37 )
 animation = "respirar"
+frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

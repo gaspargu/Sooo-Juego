@@ -12,8 +12,10 @@ var is_Soo = false
 
 var flash_mode = false
 var blink_mode = false
+export var is_kicking = false 
 
 
+var power = 0
 
 var patadas = 0
 
@@ -36,8 +38,13 @@ func init(nid):
 	$Name.text = info["name"]
 	name = str(nid)
 
+
+func _process(delta):
+	power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("record-bus2"), 0)
+
 func _physics_process(delta: float) -> void:
 #	print(index)
+
 	var target_vel
 	if is_network_master():
 		target_vel = Vector2(
@@ -69,21 +76,7 @@ func _physics_process(delta: float) -> void:
 		
 	var current = playback.get_current_node()	
 	# Animations
-	if Input.is_action_just_pressed("kick") and can_kick:
-		playback.travel("patada")
-		print("just kick")
-		pega_patada()
-		can_kick = false
-		$Timer.start()
-		return
-	if Input.is_action_just_pressed("muerto"):
-		print("presiona M de muerto")
-		playback.travel("muerto")
-		return
-	if Input.is_action_just_pressed("move_right"):
-		$Sprite.flip_h = false
-	if Input.is_action_just_pressed("move_left"):
-		$Sprite.flip_h = true
+
 #	if Input.is_action_just_pressed("move_up") and facing != "up":
 #		facing = "up"
 #		playback.travel("right")
@@ -92,17 +85,30 @@ func _physics_process(delta: float) -> void:
 #		playback.travel("right")
 #	if abs(linear_vel.x) < 5 and abs(linear_vel.y) < 5:
 #		facing = "idle"
-#		playback.travel("idle")
-	if(abs(linear_vel.x) < 0.1 && abs(linear_vel.y) < 0.1):
-		playback.travel("idle")
-	if(abs(linear_vel.x) >= 0.1 || abs(linear_vel.y) >= 0.1):
-		playback.travel("right")
+
+#		playback.travel("idle")		
+	if target_vel.x != 0:
+		$AnimatedSprite.scale.x = 4*sign(target_vel.x)
+		
+	
+	if not is_kicking:
+		if(abs(linear_vel.x) < 5 && abs(linear_vel.y) < 5):
+			playback.travel("idle")
+		if(abs(linear_vel.x) >= 5 || abs(linear_vel.y) >= 5):
+			playback.travel("right")
+		
+
 #	else:
 #		playback.travel("right")
 	
 #	print("X:",  abs(linear_vel.x))
 #	print("Y:",  abs(linear_vel.y))
-#	print("patadas:",  patadas)
+
+	#print("patadas:",  patadas)
+	
+	
+	#print("microfono: ", power)
+
 	#print(linear_vel);
 
 func _on_Timer_timeout():
@@ -118,11 +124,30 @@ func on_blinktime_out():
 func set_text(text):
 	$Sprite.texture = text
 	
+
 func set_Soo(doit: bool):
 	is_Soo = doit
 	$Name.uppercase = doit
 
-func pega_patada():
+func _input(event):
+	if not is_network_master():
+		return
+	if event.is_action_pressed("kick") and can_kick:
+		rpc("pega_patada")
+		return
+
+
+		
+	if event.is_action_pressed("muerto"):
+		print("presiona M de muerto")
+		playback.travel("muerto")
+		return
+	
+remotesync func pega_patada():
 	patadas += 1
 	var node = get_parent().get_node("IntefazPuntaje")
 	print("label:",  node)
+	is_kicking = true
+	playback.travel("patada")
+	print("just kick")
+	$Timer.start()

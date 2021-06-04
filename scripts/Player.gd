@@ -38,7 +38,7 @@ func _process(delta):
 	power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("record-bus2"), 0)
 
 func _physics_process(delta: float) -> void:
-	print(index)
+
 	var target_vel
 	if is_network_master():
 		target_vel = Vector2(
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		
 	var current = playback.get_current_node()	
 	# Animations
-	
+
 #	if Input.is_action_just_pressed("move_up") and facing != "up":
 #		facing = "up"
 #		playback.travel("right")
@@ -97,10 +97,10 @@ func _physics_process(delta: float) -> void:
 	
 #	print("X:",  abs(linear_vel.x))
 #	print("Y:",  abs(linear_vel.y))
-	print("patadas:",  patadas)
+	#print("patadas:",  patadas)
 	
 	
-	print("microfono: ", power)
+	#print("microfono: ", power)
 	#print(linear_vel);
 
 func _on_Timer_timeout():

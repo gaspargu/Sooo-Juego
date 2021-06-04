@@ -24,6 +24,8 @@ func _ready() -> void:
 		$Players.add_child(player)
 		
 	$Players.get_child(soo).set_Soo(true)
+	for key in dict:
+		print(key, ": ", dict[key])
 
 func _physics_process(delta: float) -> void:
 	
@@ -39,12 +41,14 @@ func _physics_process(delta: float) -> void:
 func set_global_pos():
 	$Players.get_child(soo).set_Soo(true)
 	$Players.get_child(soo).global_position = $Positions.get_child(0).global_position
+	$Players.get_child(soo).idle_mode()
 	var i = 1
 	for player in $Players.get_children():
 		if player.is_Soo:
 			pass
 		else:
 			player.global_position = $Positions.get_child(i).global_position
+			player.idle_mode()
 			i += 1
 
 func _end_game_id(id):

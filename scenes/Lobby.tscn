@@ -263,6 +263,7 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -2.027
+autoplay = true
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

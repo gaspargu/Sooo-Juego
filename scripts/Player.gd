@@ -119,6 +119,9 @@ func set_Soo(doit: bool):
 	is_Soo = doit
 	$Name.uppercase = doit
 
+func idle_mode():
+	playback.travel("idle")
+
 func _input(event):
 	if not is_network_master():
 		return

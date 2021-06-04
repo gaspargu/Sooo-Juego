@@ -1003,7 +1003,6 @@ shape = SubResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/Fire"]
 frames = SubResource( 18 )
-frame = 1
 playing = true
 
 [node name="Fire2" type="StaticBody2D" parent="Walls"]
@@ -1017,6 +1016,7 @@ shape = SubResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Walls/Fire2"]
 frames = SubResource( 18 )
+frame = 2
 playing = true
 
 [node name="Up" type="StaticBody2D" parent="Walls"]

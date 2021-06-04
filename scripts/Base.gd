@@ -11,8 +11,9 @@ func _on_Base_body_exited(body: Node):
 	started = true
 
 func _on_Base_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and body.is_Soo:
 		player_Inside = true
-		print("owo")
+		#print("owo")
 	else:
-		print("uwu")
+		pass
+		#print("uwu")

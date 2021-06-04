@@ -385,7 +385,6 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 hframes = 4
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.91913, 0.446285 )
@@ -434,7 +433,8 @@ editor_draw_drag_margin = true
 
 [node name="Microfono" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 21 )
-bus = "record-bus"
+autoplay = true
+bus = "record-bus2"
 
 [node name="sonido_paso" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )

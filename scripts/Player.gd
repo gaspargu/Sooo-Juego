@@ -10,7 +10,7 @@ var can_kick = true
 var flash_mode = false
 var blink_mode = false
 
-
+var power = 0
 var patadas = 0
 
 # networking
@@ -30,6 +30,10 @@ func init(nid):
 	var info = Game.players[nid]
 	$Name.text = info["name"]
 	name = str(nid)
+
+
+func _process(delta):
+	power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("record-bus2"), 0)
 
 func _physics_process(delta: float) -> void:
 	print(index)
@@ -77,6 +81,9 @@ func _physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("move_right"):
 		$Sprite.flip_h = false
+		
+		# TOIDO: scale
+		
 	if Input.is_action_just_pressed("move_left"):
 		$Sprite.flip_h = true
 #	if Input.is_action_just_pressed("move_up") and facing != "up":
@@ -95,9 +102,12 @@ func _physics_process(delta: float) -> void:
 #	else:
 #		playback.travel("right")
 	
-	print("X:",  abs(linear_vel.x))
-	print("Y:",  abs(linear_vel.y))
+#	print("X:",  abs(linear_vel.x))
+#	print("Y:",  abs(linear_vel.y))
 	print("patadas:",  patadas)
+	
+	
+	print("microfono: ", power)
 	#print(linear_vel);
 
 func _on_Timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://sprites/personaje_01/Renegade_Run_1_strip4.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sfx/caida.wav" type="AudioStream" id=8]
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://sprites/personaje_01/Renegade_Walk_1_strip4.png" type="Texture" id=10]
+[ext_resource path="res://imagenes/globo-texto.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28.1183, 6.11348 )
@@ -294,88 +295,92 @@ orbit_velocity_random = 0.0
 scale = 3.0
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 24, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 24, 32 )
 
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 24, 32 )
+
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 10 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 10 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="SpriteFrames" id=37]
 animations = [ {
 "frames": [ SubResource( 23 ) ],
 "loop": true,
-"name": "patada",
+"name": "morir",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ) ],
 "loop": true,
-"name": "morir",
+"name": "patada",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
-"name": "caminar",
+"name": "respirar",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
-"name": "correr",
+"name": "caminar",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
-"name": "respirar",
+"name": "correr",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=38]
+size = 19
+font_data = ExtResource( 9 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -400,6 +405,8 @@ margin_bottom = -64.4425
 rect_min_size = Vector2( 150, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 1, 0.282353, 1 )
+text = "aaaa"
 align = 1
 clip_text = true
 __meta__ = {
@@ -467,5 +474,32 @@ position = Vector2( 1.1283, -3.39543 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 37 )
 animation = "respirar"
-frame = 1
+frame = 2
+
+[node name="TextoSooPersonaje" type="Container" parent="."]
+margin_left = -16.2868
+margin_top = -72.9715
+margin_right = 23.7132
+margin_bottom = -32.9715
+rect_rotation = 31.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TextoSooPersonaje"]
+position = Vector2( 84.1793, -32.4424 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="TextoSooPersonaje" type="Label" parent="TextoSooPersonaje"]
+margin_left = 32.0
+margin_top = -55.0
+margin_right = 146.0
+margin_bottom = -41.0
+custom_fonts/font = SubResource( 38 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Soooo!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

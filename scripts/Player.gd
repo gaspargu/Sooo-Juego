@@ -41,8 +41,29 @@ func _process(delta):
 	power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("record-bus2"), 0)
 
 func _physics_process(delta: float) -> void:
-#	print(index)
+	# obtiene el nodo del texto del microfono de la barra superior
+	var nodo_microfono_texto = get_node("/root/Main/PanelSuperior/Panel/microfono_texto")
+	
+	# si los el numero del microfono es bajo
+	if(power > -30):
+		
+		# Aparece texto verde "Mic Detectado" en la barra superior
+		nodo_microfono_texto.text = "Mic Detectado " + String(round(power + 30))
+		nodo_microfono_texto.add_color_override("font_color", Color(0,1,0))
+		
+		# muestra el texto Soooo que grita el personaje
+		$TextoSooPersonaje.show()
 
+	else: #el sonido es bajo
+		
+		# aparece texto rojo "Mic Silencio" en la barra superior
+		nodo_microfono_texto.text = "Mic Silencio " + String(round(power + 30))
+		nodo_microfono_texto.add_color_override("font_color", Color(1,0,0))
+		
+		# oculta el texto Soooo que grita el personaje
+		$TextoSooPersonaje.hide()
+	
+	
 	var target_vel
 	if is_network_master():
 		target_vel = Vector2(

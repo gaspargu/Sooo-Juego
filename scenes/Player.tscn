@@ -11,9 +11,8 @@
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://sprites/personaje_01/Renegade_Walk_1_strip4.png" type="Texture" id=10]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 40.7904
-height = 39.3255
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.1183, 6.11348 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 9 )
@@ -295,11 +294,11 @@ orbit_velocity_random = 0.0
 scale = 3.0
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 24, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
@@ -319,47 +318,47 @@ atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="SpriteFrames" id=37]
 animations = [ {
 "frames": [ SubResource( 23 ) ],
 "loop": true,
-"name": "morir",
+"name": "patada",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ) ],
 "loop": true,
-"name": "patada",
+"name": "morir",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
@@ -369,12 +368,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
-"name": "respirar",
+"name": "correr",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
-"name": "correr",
+"name": "respirar",
 "speed": 5.0
 } ]
 
@@ -390,7 +389,7 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.91913, 0.446285 )
+position = Vector2( -3.09055, 50.8826 )
 shape = SubResource( 1 )
 
 [node name="Name" type="Label" parent="."]
@@ -464,8 +463,8 @@ amount = 10
 process_material = SubResource( 22 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.1283, -3.39543 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 37 )
 animation = "respirar"
-frame = 1
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

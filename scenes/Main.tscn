@@ -862,7 +862,7 @@ frame = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 8 )
-volume_db = -8.0
+volume_db = -24.155
 autoplay = true
 
 [node name="InterfazPuntaje" parent="." instance=ExtResource( 9 )]

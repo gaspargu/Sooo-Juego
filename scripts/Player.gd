@@ -2,9 +2,10 @@ extends KinematicBody2D
 class_name Player
 
 var linear_vel = Vector2.ZERO
-var SPEED = 400
+var SPEED = 800
 var SPEED_SQUARED = SPEED * SPEED
 var facing = "idle"
+var DICIENDO_SOO = false
 onready var playback = $AnimationTree.get("parameters/playback")
 var can_kick = true
 
@@ -46,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 	# si los el numero del microfono es bajo
 	if(power > -30):
+		# activa el modo SOOO
+		DICIENDO_SOO = true
 		
 		# Aparece texto verde "Mic Detectado" en la barra superior
 		nodo_microfono_texto.text = "Mic Detectado " + String(round(power + 30))
@@ -59,9 +62,11 @@ func _physics_process(delta: float) -> void:
 		# aparece texto rojo "Mic Silencio" en la barra superior
 		nodo_microfono_texto.text = "Mic Silencio " + String(round(power + 30))
 		nodo_microfono_texto.add_color_override("font_color", Color(1,0,0))
-		
 		# oculta el texto Soooo que grita el personaje
 		$TextoSooPersonaje.hide()
+		
+		# desactiva el modo SOOO
+		DICIENDO_SOO = false
 	
 	
 	var target_vel
@@ -76,9 +81,15 @@ func _physics_process(delta: float) -> void:
 		
 	# Power Ups modes	
 	if flash_mode:
-		SPEED = 600
+		if DICIENDO_SOO:
+			SPEED = 600
+		else: 
+			SPEED = 300
 	else:
-		SPEED = 200
+		if DICIENDO_SOO:
+			SPEED = 300
+		else: 
+			SPEED = 200
 	if blink_mode:
 		$Particles2D.emitting = true
 	else:

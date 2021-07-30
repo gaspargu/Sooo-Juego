@@ -70,9 +70,24 @@ margin_left = 8.0
 margin_top = 113.0
 margin_right = 1274.0
 margin_bottom = 152.0
+rect_pivot_offset = Vector2( 445.493, 19.5 )
 custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.313726, 0.313726, 0.313726, 1 )
 text = "El Juego Multiplayer"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 9.33032
+margin_top = 690.986
+margin_right = 1275.33
+margin_bottom = 729.986
+rect_pivot_offset = Vector2( 445.493, 19.5 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.380392, 0.611765, 0.196078, 1 )
+text = "Persigue y dale patadas a tus amigos"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

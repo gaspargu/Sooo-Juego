@@ -478,7 +478,7 @@ position = Vector2( 1.1283, -3.39543 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 37 )
 animation = "respirar"
-frame = 2
+frame = 1
 
 [node name="TextoSooPersonaje" type="Container" parent="."]
 margin_left = -16.2868
